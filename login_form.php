@@ -1,0 +1,57 @@
+<?php
+#this is Login form page , if user is already logged in then we will not allow user to access this page by executing isset($_SESSION["uid"])
+#if below statment return true then we will send user to their profile.php page
+//in action.php page if user click on "ready to checkout" button that time we will pass data in a form from action.php page
+if (isset($_POST["login_user_with_product"])) {
+	//this is product list array
+	$product_list = $_POST["product_id"];
+	//here we are converting array into json format because array cannot be store in cookie
+	$json_e = json_encode($product_list);
+	//here we are creating cookie and name of cookie is product_list
+	setcookie("product_list",$json_e,strtotime("+1 day"),"/","","",TRUE);
+
+}
+?>
+
+
+<script src="https://kit.fontawesome.com/46862fc847.js" crossorigin="anonymous"></script>
+
+
+<div class="wait overlay">
+	<div class="loader"></div>
+</div>
+<div class="container-fluid">
+
+	<form onsubmit="return false" id="login" class="login100-form ">
+		<div class="billing-details jumbotron">
+			<div class="section-title">
+				<h2 class="login100-form-title p-b-49" ><i class="fas fa-sign-in-alt"></i> &nbsp;Login</h2>
+			</div>
+
+			<div class="form-group">
+				<!-- <label for="email">Email</label> -->
+				<input class="input input-borders" type="email" name="email" placeholder="Email" style="text-align: center; outline: none;" id="password" required>
+			</div>
+
+			<div class="form-group">
+				<!-- label for="email">Password</label> -->
+				<input class="input input-borders" type="password" name="password" placeholder="Password" style="text-align: center; outline: none;" id="password" required>
+			</div>
+			<br>
+			<center>
+				<div class="row" style="width: 100%;">
+					<div class="col-md-6">
+						<input class="primary-btn btn-block" type="submit"  Value="Login" style="width: 100%;">
+					</div>
+					<div class="col-md-6">
+						<button class="btn btn-info" type="reset" style="width: 100%; border-radius: 30px; padding: 10px;"><b>Cancel</b></button>
+					</div>
+				</div>
+			</center>
+			<br>
+			<div class="form-group"><div class="alert alert-light"><h4 id="e_msg"></h4></div></div>
+			
+		</div>
+	</form>
+</div>
+</div>

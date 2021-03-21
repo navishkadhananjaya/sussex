@@ -1,0 +1,13 @@
+{
+  "typescript.tsdk": "",
+  "composer.executablePath": "C:\\ProgramData\\ComposerSetup\\bin\\composer.bat",
+  // PHPUnit Sttings.
+  "phpunit.execPath": "/usr/local/bin/phpunit",
+  	    "phpunit.args": [
+                    "--configuration",
+                     "./phpunit.xml.dist"	    ],
+        "phpunit.preferRunClassTestOverQuickPickWindow": false,
+        "json.schemas": [
+        
+        ]
+}
